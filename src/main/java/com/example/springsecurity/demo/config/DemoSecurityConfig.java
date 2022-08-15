@@ -32,6 +32,8 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter{
 			.formLogin() // We want to use form for the login method
 				.loginPage("/showMyLoginPage")
 				.loginProcessingUrl("/authenticateTheUser") // Spring will process form data automatically if we use recommended form element names
-				.permitAll(); // Anyone will be able to see the login form
+				.permitAll() // Anyone will be able to see the login form
+			.and()
+			.logout().permitAll(); // Add support for logout
 	}
 }
